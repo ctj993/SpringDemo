@@ -12,7 +12,8 @@
     <!-- define the dependency -->
     <bean id="myFortuneService" class="com.example.demo.HappyFortuneService"/>
 
-    <bean id="myCoach" class="com.example.demo.TrackCoach" scope="prototype">
+    <bean id="myCoach" class="com.example.demo.TrackCoach"
+          init-method="doMyStartupStuff" destroy-method="doMyCleanupStuff">
         <!-- set up constructor injection       -->
         <constructor-arg ref="myFortuneService"/>
     </bean>
